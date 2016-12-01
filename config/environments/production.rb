@@ -60,7 +60,7 @@ Rails.application.configure do
   # Configuring Rails to use SendGrid in production
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = '<your heroku app>.herokuapp.com'
+  host = 'http://young-scrubland-29017.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
