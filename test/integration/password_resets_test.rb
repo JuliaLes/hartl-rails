@@ -58,9 +58,11 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert is_logged_in?
     assert_not flash.empty?
     assert_redirected_to user
+    # test for the clearing of the reset digest
+    assert_nil cookies['user.reload']
   end
   
-    test "expired token" do
+  test "expired token" do
     get new_password_reset_path
     post password_resets_path,
          params: { password_reset: { email: @user.email } }
